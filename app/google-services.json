@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1073657608745",
+    "project_id": "chatto-vimoautomations",
+    "storage_bucket": "chatto-vimoautomations.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073657608745:android:b576a9e32fe8f814887a38",
+        "android_client_info": {
+          "package_name": "com.vimoautomations.chatto"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1073657608745-mbith6i0h5mgerc0p9v0mjsbhaf37qbn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCZ25aGrbSdMlRzFbXhFdO5oegSfAfwjzc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1073657608745-mbith6i0h5mgerc0p9v0mjsbhaf37qbn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

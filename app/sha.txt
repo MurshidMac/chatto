@@ -1,0 +1,36 @@
+Variant: debug
+Config: debug
+Store: C:\Users\murshid\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: F1:66:3D:AC:AF:B0:6C:36:23:D1:97:82:B1:CF:C6:56
+SHA1: AE:BD:C0:03:20:2B:0A:5D:70:1E:7C:F7:9B:D8:2D:4A:75:C3:B2:E2
+SHA-256: BD:19:9A:21:1A:CE:1E:99:CE:11:94:F5:CE:80:46:2F:54:8B:DF:DE:F1:3D:A9:E2:FC:F2:04:F2:83:EB:6A:EE
+Valid until: Friday, May 26, 2051
+----------
+Variant: release
+Config: none
+----------
+Variant: debugAndroidTest
+Config: debug
+Store: C:\Users\murshid\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: F1:66:3D:AC:AF:B0:6C:36:23:D1:97:82:B1:CF:C6:56
+SHA1: AE:BD:C0:03:20:2B:0A:5D:70:1E:7C:F7:9B:D8:2D:4A:75:C3:B2:E2
+SHA-256: BD:19:9A:21:1A:CE:1E:99:CE:11:94:F5:CE:80:46:2F:54:8B:DF:DE:F1:3D:A9:E2:FC:F2:04:F2:83:EB:6A:EE
+Valid until: Friday, May 26, 2051
+----------
+Variant: debugUnitTest
+Config: debug
+Store: C:\Users\murshid\.android\debug.keystore
+Alias: AndroidDebugKey
+MD5: F1:66:3D:AC:AF:B0:6C:36:23:D1:97:82:B1:CF:C6:56
+SHA1: AE:BD:C0:03:20:2B:0A:5D:70:1E:7C:F7:9B:D8:2D:4A:75:C3:B2:E2
+SHA-256: BD:19:9A:21:1A:CE:1E:99:CE:11:94:F5:CE:80:46:2F:54:8B:DF:DE:F1:3D:A9:E2:FC:F2:04:F2:83:EB:6A:EE
+Valid until: Friday, May 26, 2051
+----------
+Variant: releaseUnitTest
+Config: none
+----------
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 executed

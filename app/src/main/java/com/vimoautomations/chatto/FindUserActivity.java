@@ -1,14 +1,12 @@
 package com.vimoautomations.chatto;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.LinearLayoutCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.ContactsContract;
-import android.widget.LinearLayout;
 
 import com.vimoautomations.chatto.adapters.UserListAdapter;
 import com.vimoautomations.chatto.models.User;
@@ -20,7 +18,9 @@ public class FindUserActivity extends AppCompatActivity {
     private RecyclerView rv_UserList;
     private RecyclerView.Adapter rv_UserListAdapter;
     private RecyclerView.LayoutManager rv_LayoutManger;
+    private ArrayList<User> contactList;
     private ArrayList<User> userList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,6 +29,7 @@ public class FindUserActivity extends AppCompatActivity {
     }
 
     private void initRecyclyerView() {
+        contactList = new ArrayList<>();
         userList = new ArrayList<>();
         rv_UserList = findViewById(R.id.rv_user_list);
         rv_UserList.setNestedScrollingEnabled(false);
@@ -36,7 +37,7 @@ public class FindUserActivity extends AppCompatActivity {
         rv_LayoutManger = new LinearLayoutManager(getApplicationContext(),
                 RecyclerView.VERTICAL, false);
         rv_UserList.setLayoutManager(rv_LayoutManger);
-        rv_UserListAdapter = new UserListAdapter(userList);
+        rv_UserListAdapter = new UserListAdapter(contactList);
         rv_UserList.setAdapter(rv_UserListAdapter);
         getContactsList();
     }
@@ -49,7 +50,7 @@ public class FindUserActivity extends AppCompatActivity {
             String phone = phones.getString(phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
 
             User user = new User(name, phone);
-            userList.add(user);
+            contactList.add(user);
             rv_UserListAdapter.notifyDataSetChanged();
         }
     }

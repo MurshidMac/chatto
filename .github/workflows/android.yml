@@ -1,16 +1,12 @@
 name: Android CI
-
 on:
   push:
     branches: [ $default-branch ]
   pull_request:
     branches: [ $default-branch ]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 1.8
@@ -19,6 +15,3 @@ jobs:
         java-version: 1.8
     - name: Build with Gradle
       run: ./gradlew build
-
-
-

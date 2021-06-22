@@ -6,6 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.vimoautomations.chatto.R;
@@ -38,6 +39,13 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
                                  int position) {
         holder.mName.setText(userlist.get(position).getName());
         holder.mPhone.setText(userlist.get(position).getPhone());
+
+        holder.mLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
     }
 
     // SIZE of the list
@@ -48,10 +56,12 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
 
     public class UserListRecylerViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mPhone;
+        public ConstraintLayout mLayout;
         public UserListRecylerViewHolder(@NonNull  View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.txt_name_of_contact);
             mPhone = itemView.findViewById(R.id.txt_contact_number);
+            mLayout = itemView.findViewById(R.id.itemChat);
         }
     }
 }

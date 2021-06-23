@@ -21,6 +21,7 @@ import com.vimoautomations.chatto.models.User;
 import com.vimoautomations.chatto.util.CountryISO2Phone;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 public class FindUserActivity extends AppCompatActivity {
 
@@ -35,6 +36,7 @@ public class FindUserActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_user);
         initRecyclyerView();
+        getContactsList();
     }
 
     private void initRecyclyerView() {
@@ -48,7 +50,6 @@ public class FindUserActivity extends AppCompatActivity {
         rv_UserList.setLayoutManager(rv_LayoutManger);
         rv_UserListAdapter = new UserListAdapter(userList);
         rv_UserList.setAdapter(rv_UserListAdapter);
-        getContactsList();
     }
 
     private void getContactsList(){
@@ -71,8 +72,9 @@ public class FindUserActivity extends AppCompatActivity {
             if(!String.valueOf(phone.charAt(0)).equals("+")){
                 phone = countryIso2Phone + phone;
             }
-
-            User user = new User(name, phone);
+            // Assign a random UUID
+            UUID uuid = UUID.randomUUID();
+            User user = new User(uuid.toString(),name, phone);
             contactList.add(user);
             //rv_UserListAdapter.notifyDataSetChanged();
             getUserList(user);
@@ -96,7 +98,7 @@ public class FindUserActivity extends AppCompatActivity {
                         if(snap.child("name").getValue() != null){
                             name = snap.child("name").getValue().toString();
                         }
-                        User firebaseUser = new User(name, phone);
+                        User firebaseUser = new User(snap.getKey(), name, phone);
                         userList.add(firebaseUser);
                         rv_UserListAdapter.notifyDataSetChanged();
                     }

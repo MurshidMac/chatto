@@ -3,12 +3,14 @@ package com.vimoautomations.chatto.adapters;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.vimoautomations.chatto.R;
 import com.vimoautomations.chatto.models.User;
 
@@ -43,7 +45,18 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
         holder.mLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                String key = FirebaseDatabase.getInstance().getReference().child("chat")
+                        .push().getKey();
+                FirebaseDatabase.getInstance().getReference().child("user").child(
+                        FirebaseAuth.getInstance().getUid())
+                        .child("chat")
+                        .child(key)
+                        .setValue(true);
+                FirebaseDatabase.getInstance().getReference().child("user").child(
+                        userlist.get(position).getUid())
+                        .child("chat")
+                        .child(key)
+                        .setValue(true);
             }
         });
     }
@@ -56,7 +69,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
 
     public class UserListRecylerViewHolder extends RecyclerView.ViewHolder {
         public TextView mName, mPhone;
-        public ConstraintLayout mLayout;
+        public LinearLayout mLayout;
         public UserListRecylerViewHolder(@NonNull  View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.txt_name_of_contact);
